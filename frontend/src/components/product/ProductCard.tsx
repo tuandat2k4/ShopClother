@@ -20,7 +20,9 @@ export default function ProductCard({ product }: ProductCardProps) {
         <img src={image} alt={name} className="h-full w-full object-cover" />
       </div>
       <div className="py-3">
-        <h3 className="m-0 mb-1.5 text-lg font-bold sm:text-base">{name}</h3>
+        <h3 className="font-body m-0 mb-1.5 text-lg font-bold sm:text-base">
+          {name}
+        </h3>
         {rating && (
           <div className="mb-1.5 flex items-center gap-1.5">
             <span className="text-rating text-xl">{renderStars(rating)}</span>

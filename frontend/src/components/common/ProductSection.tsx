@@ -19,7 +19,7 @@ export default function ProductSection({
       <div className="mx-auto w-full max-w-[1240px] px-5">
         {/* Header: Title */}
         <div className="mb-8 flex flex-col items-center gap-4">
-          <h2 className="font-display text-[28px] font-black">{title}</h2>
+          <h2 className="text-[28px] font-black">{title}</h2>
         </div>
 
         {/* Responsive Grid */}

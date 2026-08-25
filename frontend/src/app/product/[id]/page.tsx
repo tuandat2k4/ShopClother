@@ -110,7 +110,7 @@ export default function ProductPage({ params }: ProductPageProps) {
             {/* RIGHT - Product Info */}
             <div className="w-full min-w-0 lg:flex-1 lg:pt-1">
               {/* Title */}
-              <h1 className="font-display text-[28px] leading-[1.05] font-black uppercase sm:text-[32px]">
+              <h1 className="text-[28px] leading-[1.05] font-black uppercase sm:text-[32px]">
                 {product.name}
               </h1>
 

@@ -3,10 +3,10 @@ import ReviewCard from "../common/ReviewCard";
 
 export default function ReviewsSection() {
   return (
-    <section className="overflow-hidden py-12 md:py-16">
+    <section className="bg-background-alt">
       <div className="mx-auto max-w-[1240px] px-5">
         <div className="mb-8 flex items-center justify-between">
-          <h2 className="font-display m-0 text-[32px] md:text-[40px]">
+          <h2 className="m-0 text-[32px] md:text-[40px]">
             OUR HAPPY CUSTOMERS
           </h2>
 

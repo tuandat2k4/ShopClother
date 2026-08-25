@@ -17,8 +17,8 @@ export default function DressStyle() {
   return (
     <section className="py-5 md:py-16">
       <div className="mx-auto w-full max-w-[1240px] px-5">
-        <div className="rounded-[20px] bg-background-alt p-6 md:p-10">
-          <h2 className="mb-8 text-center text-[32px] font-display md:text-[40px]">
+        <div className="bg-background-alt rounded-[20px] p-6 md:p-10">
+          <h2 className="mb-8 text-center text-[32px] md:text-[40px]">
             BROWSE BY DRESS STYLE
           </h2>
 
@@ -33,7 +33,7 @@ export default function DressStyle() {
                   alt={name}
                   className="h-full w-full object-cover"
                 />
-                <span className="absolute left-4 top-4 text-xl font-bold">
+                <span className="absolute top-4 left-4 text-xl font-bold">
                   {name}
                 </span>
               </div>
