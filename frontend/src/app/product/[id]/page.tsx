@@ -5,6 +5,7 @@ import { use, useState } from "react";
 
 import { products } from "@/data/products";
 import {
+  ColorSelector,
   ImageGallery,
   ProductSection,
   SizeSelector,
@@ -20,7 +21,7 @@ export default function ProductPage({ params }: ProductPageProps) {
 
   const product = products.find((p) => p.id === Number(id));
 
-  const [selectedColor, setSelectedColor] = useState(product?.colors[0] || "");
+  const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -69,7 +70,7 @@ export default function ProductPage({ params }: ProductPageProps) {
 
   return (
     <main className="flex-1">
-      <div className="mx-auto w-full max-w-[1240px] px-5">
+      <div className="mx-auto w-full max-w-310 px-5">
         {/* Breadcrumb */}
         <nav
           aria-label="Breadcrumb"
@@ -100,7 +101,7 @@ export default function ProductPage({ params }: ProductPageProps) {
         <section className="pb-10 sm:pb-16">
           <div className="flex flex-col gap-6 lg:flex-row lg:gap-8">
             {/* LEFT - Gallery */}
-            <div className="w-full lg:w-[604px] lg:shrink-0">
+            <div className="w-full lg:w-151 lg:shrink-0">
               <ImageGallery
                 images={product.images}
                 productName={product.name}
@@ -171,36 +172,12 @@ export default function ProductPage({ params }: ProductPageProps) {
                   Select Colors
                 </p>
 
-                <div className="flex items-center gap-3">
-                  {product.colors.map((color) => {
-                    const isSelected = selectedColor === color;
-
-                    return (
-                      <button
-                        key={color}
-                        type="button"
-                        aria-label={`Select ${color}`}
-                        aria-pressed={isSelected}
-                        onClick={() => setSelectedColor(color)}
-                        className="flex h-8 w-8 items-center justify-center rounded-full transition-transform hover:scale-105"
-                      >
-                        <span
-                          className={`flex h-8 w-8 items-center justify-center rounded-full border border-black/10 ${
-                            isSelected ? "ring-2 ring-black ring-offset-2" : ""
-                          }`}
-                          style={{
-                            backgroundColor:
-                              product.colorHex?.[color] ?? "#000000",
-                          }}
-                        >
-                          {isSelected && (
-                            <span className="text-sm text-white">✓</span>
-                          )}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
+                <ColorSelector
+                  colors={product.colors}
+                  colorHex={product.colorHex ?? {}}
+                  selected={selectedColor}
+                  onChange={setSelectedColor}
+                />
               </div>
 
               {/* Divider */}
@@ -214,8 +191,8 @@ export default function ProductPage({ params }: ProductPageProps) {
 
                 <SizeSelector
                   sizes={product.sizes}
-                  selectedSize={selectedSize}
-                  onSelectSize={setSelectedSize}
+                  selected={selectedSize}
+                  onChange={setSelectedSize}
                 />
               </div>
 

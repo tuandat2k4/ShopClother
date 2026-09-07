@@ -75,8 +75,8 @@ export default function Footer() {
               />
             </div>
             <p className="text-text-secondary mb-4 text-sm">
-              We have clothes that suits your style and which you're proud to
-              wear. From women to men.
+              We have clothes that suits your style and which you&apos;re proud
+              to wear. From women to men.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (

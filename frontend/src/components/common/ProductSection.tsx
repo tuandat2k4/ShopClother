@@ -24,11 +24,12 @@ export default function ProductSection({
 
         {/* Responsive Grid */}
         <Grid className="grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4">
-          {products.map((product) => (
+          {products.slice(0, 4).map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </Grid>
 
+        {/* Nút view all chưa có gì */}
         {showViewAll && (
           <div className="mt-8 flex justify-center">
             <button

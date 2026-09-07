@@ -1,33 +1,45 @@
 "use client";
 
+import { Check } from "lucide-react";
+
 interface ColorSelectorProps {
   colors: string[];
   colorHex: Record<string, string>;
-  selectedColor: string;
-  onSelectColor: (color: string) => void;
+  selected: string;
+  onChange: (color: string) => void;
 }
 
 export default function ColorSelector({
   colors,
-  colorHex,
-  selectedColor,
-  onSelectColor,
+  colorHex = {},
+  selected,
+  onChange,
 }: ColorSelectorProps) {
   return (
-    <div className="flex gap-3">
-      {colors.map((color) => (
-        <button
-          key={color}
-          onClick={() => onSelectColor(color)}
-          className={`w-10 h-10 rounded-full border-2 transition-transform ${
-            selectedColor === color
-              ? "border-black scale-110"
-              : "border-gray-300"
-          }`}
-          style={{ backgroundColor: colorHex[color] }}
-          title={color}
-        />
-      ))}
+    <div className="flex items-center gap-3">
+      {colors.map((color) => {
+        const isSelected = selected === color;
+
+        return (
+          <button
+            key={color}
+            type="button"
+            onClick={() => onChange(color)}
+            title={color}
+            aria-label={color}
+            className={`flex h-10 w-10 items-center justify-center rounded-full border-2 ${
+              isSelected ? "border-white" : "border-transparent"
+            }`}
+            style={{
+              backgroundColor: colorHex[color],
+            }}
+          >
+            {isSelected && (
+              <Check className="h-5 w-5 text-white" strokeWidth={2.5} />
+            )}
+          </button>
+        );
+      })}
     </div>
   );
 }

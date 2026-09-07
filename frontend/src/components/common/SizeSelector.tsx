@@ -1,34 +1,30 @@
 "use client";
 
 interface SizeSelectorProps {
-  sizes?: string[];
-  selectedSize: string;
-  onSelectSize: (size: string) => void;
+  sizes: string[];
+  selected: string;
+  onChange: (size: string) => void;
 }
 
 export default function SizeSelector({
-  sizes = [],
-  selectedSize,
-  onSelectSize,
+  sizes,
+  selected,
+  onChange,
 }: SizeSelectorProps) {
-  if (sizes.length === 0) {
-    return null;
-  }
-
   return (
     <div className="flex flex-wrap gap-2">
       {sizes.map((size) => {
-        const isSelected = selectedSize === size;
+        const isSelected = selected === size;
 
         return (
           <button
             key={size}
             type="button"
-            onClick={() => onSelectSize(size)}
+            onClick={() => onChange(size)}
             className={`rounded-full px-5 py-2.5 text-sm transition-colors ${
               isSelected
-                ? "bg-text text-background"
-                : "bg-surface text-text hover:bg-text hover:text-background"
+                ? "bg-black text-white"
+                : "bg-[#f0f0f0] text-gray-600 hover:bg-gray-200"
             }`}
           >
             {size}
